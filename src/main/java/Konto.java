@@ -18,15 +18,15 @@ public class Konto {
         if (betrag.signum() <= 0) {
             throw new IllegalArgumentException("Betrag muss positiv sein");
         }
-        saldo = saldo.add(betrag);
+        this.saldo = this.saldo.add(betrag);
         buchungen.add(new Buchung(betrag, "Einzahlung", LocalDateTime.now()));
     }
 
     public void abheben(BigDecimal betrag) throws UnzureichendesGuthabenException {
-        if (betrag.compareTo(saldo) < 0) {
-            throw new UnzureichendesGuthabenException(id);
+        if (saldo.compareTo(betrag) < 0) {
+            throw new UnzureichendesGuthabenException("Unzureichendes Guthaben");
         }
-        saldo = saldo.subtract(betrag);
+        this.saldo = this.saldo.subtract(betrag);
         buchungen.add(new Buchung(betrag.negate(), "Auszahlung", LocalDateTime.now()));
     }
 

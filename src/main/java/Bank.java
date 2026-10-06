@@ -15,10 +15,10 @@ public class Bank {
         return konten.get(id);
     }
 
-    void ueberweisung(String empfaengerID, BigDecimal empfaengerBetrag, String senderID, BigDecimal senderBetrag){
+    void ueberweisung(String empfaengerID, String senderID, BigDecimal betrag){
         boolean kontogedeckt = false;
         try {
-            konten.get(senderID).abheben(senderBetrag);
+            konten.get(senderID).abheben(betrag);
             kontogedeckt = true;
         }
         catch(UnzureichendesGuthabenException e) {
@@ -26,7 +26,7 @@ public class Bank {
             System.out.println("Konto nicht ausreichend gedeckt");
         }
         if(kontogedeckt) {
-            konten.get(empfaengerID).einzahlen(empfaengerBetrag);
+            konten.get(empfaengerID).einzahlen(betrag);
         }
     }
 }

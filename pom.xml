@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://apache.org"
+         xmlns:xsi="http://w3.org"
+         xsi:schemaLocation="http://apache.org http://apache.org">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Metadaten Ihres Projekts -->
+    <groupId>de.rdeelen.projekte</groupId>         <!-- Oft die umgedrehte Domain oder einfach ein Paketname -->
+    <artifactId>konto-manager</artifactId> <!-- Der Name Ihres Projekts -->
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- Setzen Sie hier Ihre genutzte Java-Version (z.B. 17 oder 21) -->
+        <maven.compiler.source>27</maven.compiler.source>
+        <maven.compiler.target>27</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+ 
+    <dependencies>
+        <!-- JUnit 5 für Ihre Tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.11.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
