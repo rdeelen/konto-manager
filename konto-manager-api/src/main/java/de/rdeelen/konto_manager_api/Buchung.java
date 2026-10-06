@@ -1,0 +1,6 @@
+package de.rdeelen.konto_manager_api;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public record Buchung(BigDecimal betrag, String text, LocalDateTime zeitpunkt) {}
