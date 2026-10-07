@@ -44,11 +44,11 @@ import org.junit.jupiter.api.Test;
        }
 
        @Test 
-       void testÜberweisung() {
+       void testÜberweisung() throws UnzureichendesGuthabenException{
             Bank b = new Bank();
-            b.kontoAnlegen("Max", "1", new BigDecimal("100"));
-            b.kontoAnlegen("Wili", "2", new BigDecimal("200"));
-            b.ueberweisung("1", "2", new BigDecimal("50"));
+            b.kontoAnlegen("Max");
+            b.kontoAnlegen("Wili");
+            b.ueberweisung("2", "1", new BigDecimal("50"));
             assertEquals(new BigDecimal("150"), b.kontoSuchen("1").getSaldo());
             assertEquals(new BigDecimal("150"), b.kontoSuchen("2").getSaldo());
        }

@@ -3,32 +3,38 @@ package de.rdeelen.konto_manager_api;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class Bank {
     private Map<String, Konto> konten = new HashMap<>();
 
-    public void kontoAnlegen(String inhaber, String id, BigDecimal saldo){
+    public Konto kontoAnlegen(String inhaber){
+        //function creates a unique id and than based on that id a new Konto with 0€
+        String id = UUID.randomUUID().toString();
         Konto konto = new Konto(id, inhaber);
-        konto.einzahlen(saldo);
         konten.put(id, konto);
+        return konto;
     }
     
     public Konto kontoSuchen(String id){
+        //function finds and returns a konto based on the unique id
+        Konto konto = konten.get(id);
+        if(konto == null) {
+            throw new KontoNichtGefundenException(id);
+        }
         return konten.get(id);
     }
 
-    void ueberweisung(String empfaengerID, String senderID, BigDecimal betrag){
-        boolean kontogedeckt = false;
-        try {
-            konten.get(senderID).abheben(betrag);
-            kontogedeckt = true;
-        }
-        catch(UnzureichendesGuthabenException e) {
-            System.out.println("Fehler:" + e.getLocalizedMessage());
-            System.out.println("Konto nicht ausreichend gedeckt");
-        }
-        if(kontogedeckt) {
-            konten.get(empfaengerID).einzahlen(betrag);
-        }
+    public void ueberweisung(String senderID, String empfaengerID, BigDecimal betrag) 
+        //function to move money from one Konto to another
+        throws UnzureichendesGuthabenException{
+        Konto sender = kontoSuchen(senderID);
+        Konto empfaenger = kontoSuchen(empfaengerID);
+        empfaenger.einzahlen(betrag);
     }
+
+    public Map getKonten() { return konten; }
 }

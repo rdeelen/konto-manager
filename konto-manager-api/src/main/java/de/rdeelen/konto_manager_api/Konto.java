@@ -12,11 +12,13 @@ public class Konto {
     private final List<Buchung> buchungen = new ArrayList<>();
 
     public Konto(String id, String inhaber) {
+        //the constructor
         this.id = id;
         this.inhaber = inhaber;
     }
 
     public void einzahlen(BigDecimal betrag) {
+        //function for puting money into the account
         if (betrag.signum() <= 0) {
             throw new IllegalArgumentException("Betrag muss positiv sein");
         }
@@ -25,6 +27,10 @@ public class Konto {
     }
 
     public void abheben(BigDecimal betrag) throws UnzureichendesGuthabenException {
+        //funtion to take money from the account
+        if (betrag.signum() <= 0) {
+            throw new IllegalArgumentException("Betrag muss positiv sein");
+        }
         if (saldo.compareTo(betrag) < 0) {
             throw new UnzureichendesGuthabenException("Unzureichendes Guthaben");
         }
