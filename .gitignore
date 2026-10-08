@@ -31,3 +31,11 @@ konto-manager-api/postman/collections/Konto Manager API/Transfer.request.yaml
 konto-manager-api/postman/collections/Konto Manager API/.resources/definition.yaml
 konto-manager-api/postman/environments/konto-manager-local.environment.yaml
 konto-manager-api/postman/globals/workspace.globals.yaml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/konto-manager.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
