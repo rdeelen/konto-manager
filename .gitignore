@@ -22,3 +22,12 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+konto-manager-api/.postman/resources.yaml
+konto-manager-api/postman/collections/Konto Manager API/Abhebung.request.yaml
+konto-manager-api/postman/collections/Konto Manager API/Einzahlung.request.yaml
+konto-manager-api/postman/collections/Konto Manager API/Konto anlegen.request.yaml
+konto-manager-api/postman/collections/Konto Manager API/Konto lesen.request.yaml
+konto-manager-api/postman/collections/Konto Manager API/Transfer.request.yaml
+konto-manager-api/postman/collections/Konto Manager API/.resources/definition.yaml
+konto-manager-api/postman/environments/konto-manager-local.environment.yaml
+konto-manager-api/postman/globals/workspace.globals.yaml
