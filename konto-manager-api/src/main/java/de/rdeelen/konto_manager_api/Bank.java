@@ -33,6 +33,7 @@ public class Bank {
         throws UnzureichendesGuthabenException{
         Konto sender = kontoSuchen(senderID);
         Konto empfaenger = kontoSuchen(empfaengerID);
+        sender.abheben(betrag);
         empfaenger.einzahlen(betrag);
     }
 
